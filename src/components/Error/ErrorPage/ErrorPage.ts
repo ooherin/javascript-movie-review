@@ -57,7 +57,7 @@ export const ErrorPage = ({
 
   const itemList = document.querySelector('.item-list');
   if (!itemList) return;
-  itemList.replaceChildren();
+  itemList.replaceWith();
 
   notFoundBox.append(erroImage);
   notFoundBox.append(notFoundTitle);
