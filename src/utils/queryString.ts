@@ -1,10 +1,8 @@
 import { EndPointValues, QueryStringKeyValues } from '../consts/URL';
 
 export const setEndpoint = (endPoint: EndPointValues) => {
-  const path = window.location.pathname;
-  const pathSegments = path.split('/');
-  const pathSegmentsExceptLast = pathSegments.slice(0, -1);
-  const newPath = [pathSegmentsExceptLast, endPoint].join('/');
+  const baseUrl = process.env.NODE_ENV === 'production' ? process.env.PUBLIC_PATH : process.env.LOCAL_PATH!;
+  const newPath = baseUrl + '/' + endPoint;
   window.history.replaceState({}, '', newPath);
 };
 
